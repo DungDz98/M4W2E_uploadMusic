@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<h3>My album</h3>
+<table>
+    <tr>
+        <a href="/create">Create new song</a>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <th>Singer</th>
+        <th>Option</th>
+    </tr>
+    <tr th:each="song , loop: ${album}">
+        <td th:text="${song.name}"></td>
+        <td th:text="${song.singer}"></td>
+        <td th:href="@{delete(index=${loop.index})}"></td>
+    </tr>
+</table>
+</body>
+</html>
